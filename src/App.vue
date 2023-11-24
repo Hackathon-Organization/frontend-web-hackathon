@@ -1,12 +1,13 @@
 <script setup>
 import HeaderComp from './components/HeaderComp.vue'
 import MainComp from './components/MainComp.vue'
+
 </script>
 
 <template>
   <!-- <div class="img-background "> -->
   <header>
-    <HeaderComp />
+    <HeaderComp  />
   </header>
   <main>
     <MainComp />
