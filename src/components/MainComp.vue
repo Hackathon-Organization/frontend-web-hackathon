@@ -1,20 +1,30 @@
+<script setup>
+import BottonComp from '@/components/BottonComp.vue'; 
+</script>
+
 <template>
-  <div class="bola-container">
-    <div class="inner-container">
-      <img  class="logo-img" src="/src/media/logo.png" alt="Logo"> 
-      <div class="button-container">
-        <button class="custom-button">Botão 1</button>
-        <button class="custom-button">Botão 2</button>
+  <div class="container">
+    <div class="bola-container">
+      <div class="inner-container">
+        <img class="logo-img" src="@/media/logo.png" alt="Logo"> 
       </div>
     </div>
+    <BottonComp />
   </div>
 </template>
 
 <style scoped>
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .logo-img {
- margin-top: 100px;
+  max-height: 100%;
+  max-width: 100%;
 }
+
 .bola-container {
   width: 240px;
   height: 240px;
@@ -23,34 +33,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 40%;
-  margin-top: 170px;
+  margin-top: 20px; /* Ajuste conforme necessário */
+  overflow: hidden; 
 }
 
 .inner-container {
   text-align: center;
   align-items: center;
-}
-
-.button-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 10px;
-}
-
-.custom-button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  background-color: #27ae60;
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.custom-button:hover {
-  background-color: #219653;
 }
 </style>
