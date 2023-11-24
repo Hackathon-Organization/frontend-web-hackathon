@@ -1,2 +1,3 @@
 <template>
-    ola</template>
+    <View>ola</View>    
+</template>

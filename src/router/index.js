@@ -20,8 +20,8 @@ const router = createRouter({
       component: UsuarioScreen
     },
     {
-      path: '/iscricao',
-      name: 'iscricao',
+      path: '/inscricao',
+      name: 'inscricao',
       component: InscricaoScreen
     },
     {
