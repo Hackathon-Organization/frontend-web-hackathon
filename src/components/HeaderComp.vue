@@ -1,8 +1,12 @@
+
+
 <template>
   <header class="custom-header">
     <h1>Header</h1>
     <div class="user-badge">
-        <img class="perfil-img" src="@/media/logo.png" alt="Perfil">
+        <router-link to="/usuario"><img class="perfil-img" src="https://picsum.photos/200/300" alt="Imagem de perfil do usuário">
+        </router-link>
+          
       </div>
   </header>
 </template>
