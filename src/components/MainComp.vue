@@ -1,8 +1,10 @@
 <script setup>
 import BottonComp from '@/components/BottonComp.vue'; 
+import HeaderComp from '@/components/HeaderComp.vue';
 </script>
 
 <template>
+  <header><HeaderComp/></header>
   <div class="container">
     <div class="bola-container">
       <div class="inner-container">
