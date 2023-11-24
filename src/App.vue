@@ -15,8 +15,4 @@ import MainComp from './components/MainComp.vue'
 
 <style scoped>
 
-  header {
-    background-color: #5453;
-  }
-
 </style>
