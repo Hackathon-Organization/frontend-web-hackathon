@@ -12,17 +12,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100px;
-  background-color: #492649;
+  height: 50px;
+  background-color: #012030;
   padding: 20px;
   border-radius: 10px;
   color: #ffffff;
+  margin: 0px;
 }
 
 .user-badge {
-  width: 100px;
-  height: 100px;
-  background-color: #27ae60;
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
   border-radius: 50%;
 }
 </style>
