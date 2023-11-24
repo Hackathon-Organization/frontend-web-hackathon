@@ -1,18 +1,21 @@
 <script setup>
-import HeaderComp from '@/components/HeaderComp.vue';
 import { RouterView } from 'vue-router';
 
 </script>
 
 <template>
-  
-  <header>
-    <HeaderComp  />
-  </header>
   <main>
     <RouterView />
   </main>
 </template>
 
 <style scoped>
+main {
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+  height: 100vh;
+  padding: 10;
+}
 </style>
