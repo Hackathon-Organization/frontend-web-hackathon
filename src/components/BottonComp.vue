@@ -1,7 +1,8 @@
 <template>
   <div class="button-container">
-    <button class="custom-button">Sobre</button>
-    <button class="custom-button">Inscrição</button>
+    <router-link to="/equipe"> <button class="custom-button">Equipes</button></router-link>
+    <router-link to="/inscricao"> <button class="custom-button">Inscrição</button></router-link>
+    <router-link to="/avaliacao"> <button class="custom-button">Avaliação</button></router-link>
   </div>
 </template>
 

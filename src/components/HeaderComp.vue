@@ -2,9 +2,9 @@
 
 <template>
   <header class="custom-header">
-    <h1>Header</h1>
+    <h1 class="header-title">Header</h1>
     <div class="user-badge">
-        <router-link to="/usuario"><img class="perfil-img" src="https://picsum.photos/200/300" alt="Imagem de perfil do usuário">
+        <router-link to="/usuario"><img class="perfil-img" src="/src/media/logo.png " alt="Imagem de perfil do usuário">
         </router-link>
           
       </div>
@@ -12,8 +12,13 @@
 </template>
 
 <style scoped>
+
+.header-title {
+  margin-left: 46%;
+  flex: 1;
+
+}
 .custom-header {
-  text-align: center;  
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,9 +27,6 @@
   padding: 20px;
   border-radius: 10px;
   color: #ffffff;
-  margin: 0px;
-  top: 0;
-  left: 0;
 }
 
 .user-badge {
@@ -40,5 +42,12 @@
   height: 100%;
   border-radius: 50%;
   object-fit: cover; 
+}
+
+@media (max-width: 600px) {
+  .header-title {
+    font-size: 18px; 
+    margin-left: 40%;
+  }
 }
 </style>

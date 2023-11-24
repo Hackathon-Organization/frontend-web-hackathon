@@ -10,7 +10,7 @@ import { RouterView } from 'vue-router';
     <HeaderComp  />
   </header>
   <main>
-    <RouterView/>
+    <RouterView />
   </main>
 </template>
 

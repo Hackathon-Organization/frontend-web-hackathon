@@ -33,7 +33,7 @@ import BottonComp from '@/components/BottonComp.vue';
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px; /* Ajuste conforme necessário */
+  margin-top: 20px; 
   overflow: hidden; 
 }
 
