@@ -1,22 +1,61 @@
 <template>
-  <main class="equipes-main">
-    <div class="titulo-equipes"><h1>Equipes</h1></div>
-  </main>
+    <div class="equipes-container">
+        <div class="equipes-main">
+            <div class="titulo-equipes">
+                <h1>Equipe</h1>
+            </div>
+            <div class="nomes-container">
+                <div class="nome-item">Nome 1</div>
+                <div class="nome-item">Nome 2</div>
+                <div class="nome-item">Nome 3</div>
+                <div class="nome-item">Nome 4</div>
+                <div class="nome-item">Nome 5</div>
+
+            </div>
+        </div>
+    </div>
 </template>
 
 <style>
+.equipes-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+}
+
 .equipes-main {
-  margin-top: 80px;
   height: 500px;
   width: 800px;
   color: #fff;
   background-color: #012030;
   border-radius: 30px;
-  margin: 0 auto;
+  overflow: hidden;
+  margin: auto; 
 }
 
 .titulo-equipes {
   margin-top: 20px;
   text-align: center;
+}
+
+.nomes-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  height: 500px;
+  width: 800px;
+  overflow-y: auto;
+  color: #000;
+  text-align: center;
+}
+
+.nome-item {
+  border: 2px solid #fff;
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 10px;
+  margin: 5px;
+  font-size: 20px;
 }
 </style>
