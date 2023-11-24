@@ -2,19 +2,12 @@
   <header class="custom-header">
     <h1>Header</h1>
     <div class="user-badge">
-      <img class="perfil-img" src="@/media/logo.png" alt="Perfil">
-    </div>
+        <img class="perfil-img" src="@/media/logo.png" alt="Perfil">
+      </div>
   </header>
 </template>
 
 <style scoped>
-.perfil-img {
-  width: 100%; 
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover; 
-}
-
 .custom-header {
   text-align: center;  
   display: flex;
@@ -36,5 +29,12 @@
   background-color: #fff;
   border-radius: 50%;
   overflow: hidden; 
+}
+
+.perfil-img {
+  width: 100%; 
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover; 
 }
 </style>
