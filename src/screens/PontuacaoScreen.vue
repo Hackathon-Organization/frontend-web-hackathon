@@ -64,8 +64,8 @@ onMounted(async () => {
  .voltar {
    height: 50px;
    width: 200px;
-   margin-top: 25px;
-   margin-left: 20px;
+   margin-top: 10px;
+   margin-left: 10px;
    font-size: 16px;
    background-color: #75d1ff;
    color: #fff;
