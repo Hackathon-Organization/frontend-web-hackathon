@@ -14,8 +14,6 @@ onMounted(async () => {
 });
 
 
-
-
 </script>
 
 <template>
@@ -23,7 +21,7 @@ onMounted(async () => {
   <div class="equipes-container">
     <div class="equipes-main">
       <div class="titulo-equipes">
-        <h1>Equipe</h1>
+        <h1>Equipes</h1>
       </div>
       <div class="botao-voltar">
         <router-link to="/"><button class="voltar">Voltar</button></router-link>
