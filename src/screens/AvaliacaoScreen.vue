@@ -1,78 +1,92 @@
 <template>
    <div class="equipes-container">
-      <div class="equipes-main">
-         <div class="titulo-equipes">
-            <h1>Equipe</h1>
+     <div class="equipes-main">
+       <div class="titulo-equipes">
+         <h1>Equipe</h1>
+       </div>
+       <div class="botao-voltar">
+         <router-link to="/">
+           <button class="voltar">Voltar</button>
+         </router-link>
+       </div>
+       <div class="nomes-container equipe">
+         <div class="nome-item">Nome da Equipe</div>
+         <input type="number" class="avaliacao-equipe" placeholder="Nota" />
+       </div>
+       <div class="titulo-equipes">
+         <h1>Alunos</h1>
+       </div>
+       <div class="nomes-container alunos">
+         <div v-for="aluno in alunos" :key="aluno.id" class="aluno-item">
+           <div class="nome">{{ aluno.nome }}</div>
+           <input
+             type="number"
+             class="avaliacao"
+             placeholder="Nota"
+             v-model="aluno.nota"
+           />
          </div>
-         <div class="botao-voltar">
-            <router-link to="/"><button class="voltar">Voltar</button></router-link>
-         </div>
-         <div class="nomes-container equipe">
-            <div class="nome-item">Nome da Equipe</div>
-         </div>
-         <div class="titulo-equipes">
-            <h1>Alunos</h1>
-         </div>
-         <div class="nomes-container alunos">
-            <div class="aluno-item">
-               <div class="nome">Nome do Aluno 1</div>
-               <input type="number" class="avaliacao" placeholder="Nota">
-            </div>
-            <div class="aluno-item">
-               <div class="nome">Nome do Aluno 2</div>
-               <input type="number" class="avaliacao" placeholder="Nota">
-            </div>
-            <div class="aluno-item">
-               <div class="nome">Nome do Aluno 3</div>
-               <input type="number" class="avaliacao" placeholder="Nota">
-            </div>
-            <div class="aluno-item">
-               <div class="nome">Nome do Aluno 4</div>
-               <input type="number" class="avaliacao" placeholder="Nota">
-            </div>
-            <div class="aluno-item">
-               <div class="nome">Nome do Aluno 5</div>
-               <input type="number" class="avaliacao" placeholder="Nota">
-            </div>
-         </div>
-      </div>
+       </div>
+       <div class="botao-avaliar">
+         <button class="avaliar" @click="confirmarAvaliacao">Confirmar</button>
+       </div>
+     </div>
    </div>
-   <div class="botao-avaliar">
-            <button class="avaliar">Confirmar</button>
-         </div>
-
-</template>
+ </template>
  
-<style>
-.equipes-container {
+ <script>
+ export default {
+   data() {
+     return {
+       alunos: [
+         { id: 1, nome: 'Nome do Aluno 1', nota: null },
+         { id: 2, nome: 'Nome do Aluno 2', nota: null },
+         { id: 3, nome: 'Nome do Aluno 3', nota: null },
+         { id: 4, nome: 'Nome do Aluno 4', nota: null },
+         { id: 5, nome: 'Nome do Aluno 5', nota: null },
+         { id: 6, nome: 'Nome do Aluno 6', nota: null },
+       ],
+     };
+   },
+   methods: {
+     confirmarAvaliacao() {
+       alert('Avaliações confirmadas:', this.alunos);
+     },
+   },
+ };
+ </script>
+ 
+ <style>
+ .equipes-container {
    display: flex;
    justify-content: center;
    align-items: center;
    height: 100vh;
-}
-
-.equipes-main {
-   height: 500px;
+ }
+ 
+ .equipes-main {
+   height: 550px;
    width: 800px;
    color: #fff;
    background-color: #012030;
    border-radius: 30px;
    overflow: hidden;
    margin: auto;
-}
-
-.titulo-equipes {
+   position: relative; /* Adicionado para posicionar o botão corretamente */
+ }
+ 
+ .titulo-equipes {
    margin-top: 20px;
    text-align: center;
-}
-
-.botao-voltar {
+ }
+ 
+ .botao-voltar {
    position: absolute;
    top: 10px;
    left: 10px;
-}
-
-.voltar {
+ }
+ 
+ .voltar {
    height: 50px;
    width: 200px;
    font-size: 16px;
@@ -80,51 +94,52 @@
    color: #fff;
    border-radius: 15px;
    transition: background-color 0.3s;
-}
-
-.voltar:hover {
-   background-color: #012030;
+ }
+ 
+ .voltar:hover {
+   background-color: #0a6491;
    color: #012030;
    border-radius: 15px;
    color: #fff;
-}
-
-.nomes-container {
+ }
+ 
+ .nomes-container {
    margin-top: 20px;
    color: #000;
    text-align: center;
-}
-
-.nomes-container.equipe {
+ }
+ 
+ .nomes-container.equipe {
    max-height: 150px;
    overflow-y: auto;
-}
-
-.nomes-container.alunos {
+ }
+ 
+ .nomes-container.alunos {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-around;
    max-height: 300px;
    overflow-y: auto;
    margin-bottom: 10px;
-}
-
-.nome-item {
+ }
+ 
+ .nome-item {
    border: 2px solid #fff;
    border-radius: 10px;
    padding: 10px;
    margin: 5px;
    font-size: 20px;
    background-color: #fff;
-}
-
-.botao-avaliar {
+ }
+ 
+ .botao-avaliar {
    text-align: center;
-
-}
-
-.botao-avaliar {
-   text-align: center;
-}
-
-.avaliar-button {
+   position: absolute;
+   bottom: 10px; 
+   width: 100%; 
+ }
+ 
+ .avaliar {
    height: 50px;
    width: 200px;
    font-size: 16px;
@@ -133,32 +148,31 @@
    border-radius: 15px;
    transition: background-color 0.3s;
    margin-top: 10px;
-}
-
-.avaliar-button:hover {
+ }
+ 
+ .avaliar:hover {
    background-color: #012030;
    color: #012030;
    border-radius: 15px;
    color: #fff;
-}
-
-.aluno-item {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
+ }
+ 
+ .aluno-item {
+   width: calc(33.33% - 20px);
+   box-sizing: border-box;
    margin-bottom: 10px;
-}
-
-.nome {
+ }
+ 
+ .nome {
    border: 2px solid #fff;
    border-radius: 10px;
    padding: 10px;
    margin: 5px;
    font-size: 20px;
    background-color: #fff;
-}
-
-.avaliacao {
+ }
+ 
+ .avaliacao {
    color: #012030;
    width: 80px;
    height: 30px;
@@ -166,6 +180,17 @@
    border-radius: 10px;
    padding: 5px;
    font-size: 16px;
-}
-</style>
+ }
+ 
+ .avaliacao-equipe {
+   margin: auto;
+   color: #012030;
+   width: 80px;
+   height: 30px;
+   border: 2px solid #fff;
+   border-radius: 10px;
+   padding: 5px;
+   font-size: 16px;
+ }
+ </style>
  

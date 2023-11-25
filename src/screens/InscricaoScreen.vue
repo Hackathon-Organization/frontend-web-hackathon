@@ -15,8 +15,8 @@
         <div class="nome-item">Nome 5</div>
       </div>
       <div class="botao-avaliar">
-        <router-link to="/avaliacao">
-          <button class="avaliar">Avaliar</button>
+        <router-link to="/">
+          <button class="avaliar">Inscrever Equipe</button>
         </router-link>
       </div>
     </div>
