@@ -10,8 +10,6 @@
         <div class="div-avaliar">Nome</div>
         <div class="div-avaliar">Nome</div>
         <div class="div-avaliar">Nome</div>
-        <div class="div-avaliar">Nome</div>
-
         <div class="div-avaliar">
           <router-link to="/avaliacao">
             <button class="avaliar">Avaliar</button>
@@ -55,7 +53,8 @@
   padding: 10px;
   margin: 5px;
   font-size: 20px;
-  background-color: #012030;
+  background-color: #fff;
+  color: #000;
 }
 
 .equipes-container {

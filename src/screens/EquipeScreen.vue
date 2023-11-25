@@ -46,14 +46,15 @@
   overflow-y: auto;
   color: #000;
   text-align: center;
+  
 }
 
 .nome-item {
   border: 2px solid #fff;
   border-radius: 10px;
-  background-color: #fff;
   padding: 10px;
   margin: 5px;
   font-size: 20px;
+  background-color: #fff;
 }
 </style>
