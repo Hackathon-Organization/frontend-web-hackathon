@@ -1,6 +1,9 @@
 <template>
   <div class="user-profile">
     <div class="user-info">
+      <div class="profile-image-container">
+        <img src="/src/media/logo.png" alt="Imagem do Usuário" />
+      </div>
       <div class="titulo-equipes">
         <h2 header-text>Nome do Usuário</h2>
       </div>
@@ -12,12 +15,12 @@
       <div class="info-text">
         <p>Pontuação:</p>
         <p>Equipe:</p>
-        
+      </div>
+
+      <div class="botao-voltar">
+        <router-link to="/"><button class="voltar">Voltar</button></router-link>
       </div>
     </div>
-  </div>
-  <div class="botao-voltar">
-    <router-link to="/"><button class="voltar">Voltar</button></router-link>
   </div>
 </template>
 
@@ -27,6 +30,22 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.profile-image-container {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-top: 20px;
+  position: relative;
+}
+
+.profile-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 h2[header-text] {
@@ -49,6 +68,7 @@ h2[header-text] {
   flex-direction: column;
   align-items: center;
 }
+
 .section {
   width: 300px;
   display: flex;
@@ -60,6 +80,7 @@ h2[header-text] {
   border-radius: 10px;
   padding: 10px;
 }
+
 .botao-voltar {
   position: absolute;
   bottom: 10px;
