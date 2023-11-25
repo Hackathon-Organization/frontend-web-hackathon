@@ -1,5 +1,8 @@
 <template>
     <div class="equipes-container">
+      <div class="botao-voltar">
+        <router-link to="/"><button class="voltar">Voltar</button></router-link>
+      </div>
         <div class="equipes-main">
             <div class="titulo-equipes">
                 <h1>Equipe</h1>
@@ -57,4 +60,28 @@
   font-size: 20px;
   background-color: #fff;
 }
+
+.botao-voltar {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.voltar {
+  height: 50px;
+  width: 200px;
+  font-size: 16px;
+  background-color: #75d1ff;
+  color: #fff;
+  border-radius: 15px;
+  transition: background-color 0.3s;
+}
+
+.voltar:hover {
+  background-color: #012030;
+  color: #012030;
+  border-radius: 15px;
+  color: #fff;
+}
+
 </style>
