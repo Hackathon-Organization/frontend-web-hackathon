@@ -3,27 +3,48 @@
     <div class="equipes-main">
       <div class="titulo-equipes">
         <h1>Equipe</h1>
+        <input v-model="nomeEquipe" class="equipe-input" placeholder="Nome da Equipe">
       </div>
       <div class="botao-voltar">
         <router-link to="/"><button class="voltar">Voltar</button></router-link>
       </div>
       <div class="nomes-container">
-        <div class="nome-item">Nome 1</div>
-        <div class="nome-item">Nome 2</div>
-        <div class="nome-item">Nome 3</div>
-        <div class="nome-item">Nome 4</div>
-        <div class="nome-item">Nome 5</div>
+        <div v-for="(aluno, index) in alunos" :key="aluno.id">
+          <input v-model="aluno.nome" class="nome-item" :placeholder="'Nome ' + (index + 1)">
+        </div>
       </div>
       <div class="botao-avaliar">
-        <router-link to="/">
-          <button class="avaliar">Inscrever Equipe</button>
-        </router-link>
+        <button class="avaliar" @click="confirmarAvaliacao">Confirmar</button>
       </div>
     </div>
+   
   </div>
 </template>
 
-<style>
+<script>
+export default {
+  data() {
+    return {
+      nomeEquipe: 'Nome da Equipe',
+      alunos: [
+        { id: 1, nome: 'Nome do Aluno 1', nota: null },
+        { id: 2, nome: 'Nome do Aluno 2', nota: null },
+        { id: 3, nome: 'Nome do Aluno 3', nota: null },
+        { id: 4, nome: 'Nome do Aluno 4', nota: null },
+        { id: 5, nome: 'Nome do Aluno 5', nota: null },
+        { id: 6, nome: 'Nome do Aluno 6', nota: null },
+      ],
+    };
+  },
+  methods: {
+    confirmarAvaliacao() {
+      alert('Avaliações confirmadas:', this.alunos, 'Nome da Equipe:', this.nomeEquipe);
+    },
+  },
+};
+</script>
+
+<style scoped>
 .equipes-container {
   display: flex;
   justify-content: center;
@@ -32,7 +53,7 @@
 }
 
 .equipes-main {
-  height: 500px;
+  height: 600px;
   width: 800px;
   color: #fff;
   background-color: #012030;
@@ -72,7 +93,7 @@
 .nomes-container {
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  margin-top: 40px; 
   overflow-y: auto;
   color: #000;
   text-align: center;
@@ -88,8 +109,11 @@
 }
 
 .botao-avaliar {
-  margin-top: 20px;
   text-align: center;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  padding-top: 10px;
 }
 
 .avaliar {
@@ -100,6 +124,7 @@
   color: #fff;
   border-radius: 15px;
   transition: background-color 0.3s;
+  margin-top: 10px;
 }
 
 .avaliar:hover {
@@ -107,5 +132,15 @@
   color: #012030;
   border-radius: 15px;
   color: #fff;
+}
+.equipe-input {
+  width: 60%;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 20px;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  background-color: #fff;
+  box-sizing: border-box;
 }
 </style>
