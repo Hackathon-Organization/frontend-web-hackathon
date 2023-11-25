@@ -3,16 +3,15 @@ import { ref, onMounted } from 'vue';
 import api from '@/plugins/axios';
 import Loading from 'vue-loading-overlay';
 
-const equipes = ref([])
-const isLoading=ref(false)
+const equipes = ref([]);
+const isLoading = ref(false);
 
 onMounted(async () => {
-  isLoading.value = true
+  isLoading.value = true;
   const response = await api.get('/equipes');
-  equipes.value = response.data.results
-  isLoading.value = false
+  equipes.value = response.data.results;
+  isLoading.value = false;
 });
-
 
 </script>
 
@@ -27,7 +26,15 @@ onMounted(async () => {
         <router-link to="/"><button class="voltar">Voltar</button></router-link>
       </div>
       <div class="nomes-container">
-        <div class="nome-item" v-for="equipe in equipes" :key="equipe.id">{{equipe.nome}}</div>
+        <div class="nome-item" v-for="equipe in equipes" :key="equipe.id">
+          <h3>{{ equipe.nome }}</h3>
+        </div>
+      </div>
+      <div v-if="equipeSelecionada">
+        <h2>Detalhes da Equipe</h2>
+        <div class="detalhes-equipe">
+          <div v-for="membro in equipeSelecionada.membros" :key="membro.id" class="membro-item">{{ membro.nome }}</div>
+        </div>
       </div>
       <div class="botao-avaliar">
         <router-link to="/">
@@ -86,7 +93,8 @@ onMounted(async () => {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
-  overflow-y: auto;
+  overflow-y: auto; 
+  max-height: 400px; 
   color: #000;
   text-align: center;
 }

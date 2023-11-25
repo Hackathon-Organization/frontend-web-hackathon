@@ -2,7 +2,7 @@
 
 <template>
   <header class="custom-header">
-    <h1 class="header-title">Header</h1>
+    <h1 class="header-title">Tech Titans Hackathon</h1>
     <div class="user-badge">
         <router-link to="/usuario"><img class="perfil-img" src="/src/media/logo.png " alt="Imagem de perfil do usuário">
         </router-link>
@@ -14,7 +14,7 @@
 <style scoped>
 
 .header-title {
-  margin-left: 46%;
+  text-align: center;
   flex: 1;
 
 }
@@ -47,7 +47,7 @@
 @media (max-width: 600px) {
   .header-title {
     font-size: 18px; 
-    margin-left: 40%;
+    text-align: center;
   }
 }
 </style>

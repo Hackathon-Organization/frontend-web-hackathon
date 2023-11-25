@@ -3,17 +3,17 @@ import { ref, onMounted } from 'vue';
 import api from '@/plugins/axios';
 import Loading from 'vue-loading-overlay';
 
-const participantes = ref([])
-const isLoading=ref(false)
+const participantes = ref([]);
+const isLoading = ref(false);
 
 onMounted(async () => {
-  isLoading.value = true
+  isLoading.value = true;
   const response = await api.get('/participantes');
-  participantes.value = response.data.results
-  isLoading.value = false
+  participantes.value = response.data.results;
+  participantes.value.sort((a, b) => b.pontuacao - a.pontuacao);
+
+  isLoading.value = false;
 });
-
-
 </script>
 
 <template>
@@ -27,7 +27,10 @@ onMounted(async () => {
         <router-link to="/"><button class="voltar">Voltar</button></router-link>
       </div>
       <div class="nomes-container">
-        <div class="nome-item" v-for="participantes in  participantes" :key="participantes.id"><h2> {{participantes.nome}}</h2> <h3>Nota: </h3>{{participantes.pontuacao}}</div>
+        <div class="nome-item" v-for="participante in participantes" :key="participante.id">
+          <h2>{{ participante.nome }}</h2> 
+          <h3>Nota: {{ participante.pontuacao }}</h3>
+        </div>
       </div>
       <div class="botao-avaliar">
       </div>
@@ -40,10 +43,12 @@ onMounted(async () => {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 750px;
 }
 
 .pontuacoes-main {
   width: 800px;
+  height: 500px;
   color: #fff;
   background-color: #012030;
   border-radius: 30px;
@@ -96,5 +101,4 @@ onMounted(async () => {
   font-size: 20px;
   background-color: #fff;
 }
-
 </style>

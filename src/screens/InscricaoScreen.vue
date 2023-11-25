@@ -1,48 +1,53 @@
+<script setup>
+import Axios from 'axios';
+import { reactive } from 'vue';
+
+const equipe = reactive({
+  nome: '',
+  membro1: '',
+  membro2: '',
+  membro3: '',
+  membro4: '',
+  membro5: '',
+  membro6: '',
+});
+
+const adicionarEquipe = async () => {
+  try {
+    const response = await Axios.post('http://0.0.0.0:19003/api/equipes/', equipe);
+    console.log('Resposta do servidor:', response.data);
+  } catch (error) {
+    console.error('Erro ao adicionar equipe:', error);
+  }
+};
+</script>
+
+
 <template>
   <div class="equipes-container">
     <div class="equipes-main">
       <div class="titulo-equipes">
         <h1>Equipe</h1>
-        <input v-model="nomeEquipe" class="equipe-input" placeholder="Nome da Equipe">
+        <input v-model="equipe.nome" class="equipe-input" placeholder="Nome da Equipe">
       </div>
       <div class="botao-voltar">
         <router-link to="/"><button class="voltar">Voltar</button></router-link>
       </div>
-      <div class="nomes-container">
-        <div v-for="(aluno, index) in alunos" :key="aluno.id">
-          <input v-model="aluno.nome" class="nome-item" :placeholder="'Nome ' + (index + 1)">
-        </div>
+      <div class="nomes-container">        
+          <input v-model="equipe.membro1" class="nome-item" placeholder="Nome 1">        
+          <input v-model="equipe.membro2" class="nome-item" placeholder="Nome 2">        
+          <input v-model="equipe.membro3" class="nome-item" placeholder="Nome 3">        
+          <input v-model="equipe.membro4" class="nome-item" placeholder="Nome 4">        
+          <input v-model="equipe.membro5" class="nome-item" placeholder="Nome 5">        
+          <input v-model="equipe.membro6" class="nome-item" placeholder="Nome 6">        
       </div>
-      <div class="botao-avaliar">
-        <button class="avaliar" @click="confirmarAvaliacao">Confirmar</button>
+      <div class="botao-adicionar">
+        <button class="adicionar" @click="adicionarEquipe">Confirmar</button>
       </div>
     </div>
-   
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      nomeEquipe: 'Nome da Equipe',
-      alunos: [
-        { id: 1, nome: 'Nome do Aluno 1', nota: null },
-        { id: 2, nome: 'Nome do Aluno 2', nota: null },
-        { id: 3, nome: 'Nome do Aluno 3', nota: null },
-        { id: 4, nome: 'Nome do Aluno 4', nota: null },
-        { id: 5, nome: 'Nome do Aluno 5', nota: null },
-        { id: 6, nome: 'Nome do Aluno 6', nota: null },
-      ],
-    };
-  },
-  methods: {
-    confirmarAvaliacao() {
-      alert('Avaliações confirmadas:', this.alunos, 'Nome da Equipe:', this.nomeEquipe);
-    },
-  },
-};
-</script>
 
 <style scoped>
 .equipes-container {
@@ -108,7 +113,7 @@ export default {
   background-color: #fff;
 }
 
-.botao-avaliar {
+.botao-adicionar {
   text-align: center;
   position: absolute;
   bottom: 10px;
@@ -116,7 +121,7 @@ export default {
   padding-top: 10px;
 }
 
-.avaliar {
+.adicionar {
   height: 50px;
   width: 200px;
   font-size: 16px;

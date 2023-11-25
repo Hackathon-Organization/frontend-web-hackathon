@@ -1,3 +1,21 @@
+<script setup>
+import { ref, onMounted } from 'vue'
+import api from '@/plugins/axios'
+
+const equipes = ref([])
+const isLoading = ref(false)
+
+onMounted(async () => {
+  isLoading.value = true
+  const response = await api.get('/equipes')
+  equipes.value = response.data.results
+  isLoading.value = false
+})
+function confirmarAvaliacao() {
+  alert('Avaliações confirmadas:', this.alunos)
+}
+</script>
+
 <template>
   <div class="equipes-container">
     <div class="equipes-main">
@@ -28,31 +46,8 @@
     </div>
   </div>
 </template>
- 
-<script>
-export default {
-  data() {
-    return {
-      alunos: [
-        { id: 1, nome: 'Nome do Aluno 1', nota: null },
-        { id: 2, nome: 'Nome do Aluno 2', nota: null },
-        { id: 3, nome: 'Nome do Aluno 3', nota: null },
-        { id: 4, nome: 'Nome do Aluno 4', nota: null },
-        { id: 5, nome: 'Nome do Aluno 5', nota: null },
-        { id: 6, nome: 'Nome do Aluno 6', nota: null },
-      ],
-    };
-  },
-  methods: {
-    confirmarAvaliacao() {
-      alert('Avaliações confirmadas:', this.alunos);
-    },
-  },
-};
-</script>
- 
-<style>
 
+<style>
 body {
   background: radial-gradient(circle, #012030 0%, #010101 100%);
 }
@@ -73,7 +68,6 @@ body {
   overflow: hidden;
   margin: auto;
   position: relative;
-  /* Adicionado para posicionar o botão corretamente */
 }
 
 .titulo-equipes {
@@ -194,4 +188,3 @@ body {
   font-size: 16px;
 }
 </style>
- 
