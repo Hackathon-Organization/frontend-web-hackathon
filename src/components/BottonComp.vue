@@ -3,6 +3,8 @@
     <router-link to="/equipe"> <button class="custom-button">Equipes</button></router-link>
     <router-link to="/inscricao"> <button class="custom-button">Inscrição</button></router-link>
     <router-link to="/avaliacao"> <button class="custom-button">Avaliação</button></router-link>
+    <router-link to="/nota"> <button class="custom-button">Notas</button></router-link>
+    
   </div>
 </template>
 

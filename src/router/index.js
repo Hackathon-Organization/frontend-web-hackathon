@@ -6,6 +6,7 @@ import EquipeScreen from '../screens/EquipeScreen.vue'
 import AvaliacaoScreen from '../screens/AvaliacaoScreen.vue'
 import RegistroScreen from '../screens/RegistroScreen.vue'
 import LoginScreen from '../screens/LoginScreen.vue' 
+import NotaScreen from '../screens/NotaScreen.vue' 
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,6 +15,11 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HeaderComp
+    },
+    {
+      path: '/nota',
+      name: 'nota',
+      component: NotaScreen
     },
     {
       path: '/usuario',
