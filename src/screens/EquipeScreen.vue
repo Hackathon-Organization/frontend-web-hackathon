@@ -13,7 +13,6 @@
                 <div class="nome-item">Nome 3</div>
                 <div class="nome-item">Nome 4</div>
                 <div class="nome-item">Nome 5</div>
-
             </div>
         </div>
     </div>
