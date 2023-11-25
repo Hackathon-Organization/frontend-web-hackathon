@@ -5,6 +5,7 @@ import InscricaoScreen from '../screens/InscricaoScreen.vue'
 import EquipeScreen from '../screens/EquipeScreen.vue'
 import AvaliacaoScreen from '../screens/AvaliacaoScreen.vue'
 import RegistroScreen from '../screens/RegistroScreen.vue'
+import LoginScreen from '../screens/LoginScreen.vue' 
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +39,11 @@ const router = createRouter({
         path: '/registro',
         name: 'registro',
         component: RegistroScreen
+      },
+    {
+        path: '/login',
+        name: 'login',
+        component: LoginScreen
       },
   ]
 })
