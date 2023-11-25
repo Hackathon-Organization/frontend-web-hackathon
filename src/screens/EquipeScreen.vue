@@ -71,14 +71,14 @@
   height: 50px;
   width: 200px;
   font-size: 16px;
-  background-color: #75d1ff;
+  background-color: #012030;
   color: #fff;
   border-radius: 15px;
   transition: background-color 0.3s;
 }
 
 .voltar:hover {
-  background-color: #012030;
+  background-color: #75d1ff;
   color: #012030;
   border-radius: 15px;
   color: #fff;
