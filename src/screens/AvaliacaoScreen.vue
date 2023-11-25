@@ -1,60 +1,63 @@
 <script setup>
-import { ref, onMounted, watch } from 'vue';
-import api from '@/plugins/axios';
+import { ref, onMounted, watch } from 'vue'
+import api from '@/plugins/axios'
 
-const equipes = ref([]);
-const equipeSelecionada = ref(null);
-const avaliacaoAtual = ref(null);
+const equipes = ref([])
+const equipeSelecionada = ref(null)
+const avaliacaoAtual = ref(null)
 
 onMounted(async () => {
   try {
-    const response = await api.get('/equipes');
-    equipes.value = response.data.results;
+    const response = await api.get('/equipes')
+    equipes.value = response.data.results
   } catch (error) {
-    console.error('Erro ao carregar equipes:', error);
-    alert('Ocorreu um erro ao carregar as equipes. Por favor, tente novamente.');
+    console.error('Erro ao carregar equipes:', error)
+    alert('Ocorreu um erro ao carregar as equipes. Por favor, tente novamente.')
   }
-});
+})
 
 watch(equipeSelecionada, (novaEquipeSelecionada) => {
-  equipes.value = novaEquipeSelecionada?.equipes?.map(equipe => ({ nome: equipe.nome, nota: 0 })) || [];
-});
+  equipes.value =
+    novaEquipeSelecionada?.equipes?.map((equipe) => ({ nome: equipe.nome, nota: 0 })) || []
+})
 
 function selecionarEquipe(equipe) {
-  equipeSelecionada.value = equipe;
+  equipeSelecionada.value = equipe
 }
 
 async function confirmarAvaliacao() {
   if (equipeSelecionada.value) {
-
     try {
-      await api.patch(`/equipes/${equipeSelecionada.value.id}/`, {nota: avaliacaoAtual.value});
-      avaliacaoAtual.value = null;
-      alert('Avaliações confirmadas!');
+      await api.patch(`/equipes/${equipeSelecionada.value.id}/`, { nota: avaliacaoAtual.value })
+      avaliacaoAtual.value = null
+      alert('Avaliações confirmadas!')
     } catch (error) {
-      console.error('Erro ao enviar avaliações:', error);
-      alert('Ocorreu um erro ao enviar as avaliações. Por favor, tente novamente.');
+      console.error('Erro ao enviar avaliações:', error)
+      alert('Ocorreu um erro ao enviar as avaliações. Por favor, tente novamente.')
     }
   } else {
-    alert('Por favor, selecione uma equipe antes de confirmar a avaliação.');
+    alert('Por favor, selecione uma equipe antes de confirmar a avaliação.')
   }
 }
 </script>
 
-
 <template>
   <div class="equipes-container">
     <div class="equipes-main">
+      <router-link to="/">
+        <button class="voltar">Voltar</button>
+      </router-link>
       <div class="titulo-equipes">
         <h1>Equipe</h1>
       </div>
-      <div class="botao-voltar">
-        <router-link to="/">
-          <button class="voltar">Voltar</button>
-        </router-link>
-      </div>
+
       <div class="nomes-container equipe">
-        <div v-for="equipe in equipes" :key="equipe.id" class="nome-item" @click="selecionarEquipe(equipe)">
+        <div
+          v-for="equipe in equipes"
+          :key="equipe.id"
+          class="nome-item"
+          @click="selecionarEquipe(equipe)"
+        >
           {{ equipe.nome }}
         </div>
       </div>
@@ -102,15 +105,11 @@ body {
   text-align: center;
 }
 
-.botao-voltar {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-}
-
 .voltar {
   height: 50px;
   width: 200px;
+  margin-top: 10px;
+  margin-left: 10px;
   font-size: 16px;
   background-color: #75d1ff;
   color: #fff;
@@ -119,7 +118,7 @@ body {
 }
 
 .voltar:hover {
-  background-color: #0a6491;
+  background-color: #012030;
   color: #012030;
   border-radius: 15px;
   color: #fff;

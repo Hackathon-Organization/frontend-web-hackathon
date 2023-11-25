@@ -40,61 +40,65 @@ onMounted(async () => {
   </div>
 </template>
 
-<style scoped> .pontuacoes-container {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   height: 750px;
- }
+<style scoped>
+.pontuacoes-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 750px;
+}
 
- .pontuacoes-main {
-   width: 800px;
-   height: 500px;
-   color: #fff;
-   background-color: #012030;
-   border-radius: 30px;
-   overflow: hidden;
-   margin-top: 10px;
- }
+.pontuacoes-main {
+  width: 800px;
+  height: 500px;
+  color: #fff;
+  background-color: #012030;
+  border-radius: 30px;
+  overflow: hidden;
+  margin-top: 10px;
+}
 
- .titulo-pontuacoes {
-   margin-top: 20px;
-   text-align: center;
- }
- .voltar {
-   height: 50px;
-   width: 200px;
-   margin-top: 10px;
-   margin-left: 10px;
-   font-size: 16px;
-   background-color: #75d1ff;
-   color: #fff;
-   border-radius: 15px;
-   transition: background-color 0.3s;
- }
+.titulo-pontuacoes {
+  margin-top: 20px;
+  text-align: center;
+}
 
- .voltar:hover {
-   background-color: #012030;
-   color: #012030;
-   border-radius: 15px;
-   color: #fff;
- }
+.voltar {
+  height: 50px;
+  width: 200px;
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 16px;
+  background-color: #75d1ff;
+  color: #fff;
+  border-radius: 15px;
+  transition: background-color 0.3s;
+}
 
- .nomes-container {
-   display: flex;
-   flex-direction: column;
-   margin-top: 20px;
-   overflow-y: auto;
-   color: #000;
-   text-align: center;
- }
+.voltar:hover {
+  background-color: #012030;
+  color: #012030;
+  border-radius: 15px;
+  color: #fff;
+}
 
- .nome-item {
-   border: 2px solid #fff;
-   border-radius: 10px;
-   padding: 10px;
-   margin: 5px;
-   font-size: 20px;
-   background-color: #fff;
- }
+.nomes-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  overflow-y: auto;
+  max-height: 400px; 
+  color: #000;
+  text-align: center;
+}
+
+.nome-item {
+  border: 2px solid #fff;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px;
+  font-size: 20px;
+  background-color: #fff;
+}
 </style>
+

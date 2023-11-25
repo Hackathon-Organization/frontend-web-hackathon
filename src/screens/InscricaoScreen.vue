@@ -26,13 +26,14 @@ const adicionarEquipe = async () => {
 <template>
   <div class="equipes-container">
     <div class="equipes-main">
+      <router-link to="/"><button class="voltar">Voltar</button></router-link>
       <div class="titulo-equipes">
         <h1>Equipe</h1>
         <input v-model="equipe.nome" class="equipe-input" placeholder="Nome da Equipe">
       </div>
-      <div class="botao-voltar">
-        <router-link to="/"><button class="voltar">Voltar</button></router-link>
-      </div>
+    
+        
+   
       <div class="nomes-container">        
           <input v-model="equipe.membro1" class="nome-item" placeholder="Nome 1">        
           <input v-model="equipe.membro2" class="nome-item" placeholder="Nome 2">        
@@ -41,10 +42,11 @@ const adicionarEquipe = async () => {
           <input v-model="equipe.membro5" class="nome-item" placeholder="Nome 5">        
           <input v-model="equipe.membro6" class="nome-item" placeholder="Nome 6">        
       </div>
-      <div class="botao-adicionar">
+      
+    </div>
+    <div class="botao-adicionar">
         <button class="adicionar" @click="adicionarEquipe">Confirmar</button>
       </div>
-    </div>
   </div>
 </template>
 
@@ -72,28 +74,24 @@ const adicionarEquipe = async () => {
   text-align: center;
 }
 
-.botao-voltar {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-}
-
 .voltar {
-  height: 50px;
-  width: 200px;
-  font-size: 16px;
-  background-color: #75d1ff;
-  color: #fff;
-  border-radius: 15px;
-  transition: background-color 0.3s;
-}
+   height: 50px;
+   width: 200px;
+   margin-top: 10px;
+   margin-left: 10px;
+   font-size: 16px;
+   background-color: #75d1ff;
+   color: #fff;
+   border-radius: 15px;
+   transition: background-color 0.3s;
+ }
 
-.voltar:hover {
-  background-color: #012030;
-  color: #012030;
-  border-radius: 15px;
-  color: #fff;
-}
+ .voltar:hover {
+   background-color: #012030;
+   color: #012030;
+   border-radius: 15px;
+   color: #fff;
+ }
 
 .nomes-container {
   display: flex;
