@@ -43,8 +43,6 @@
   display: flex;
   flex-direction: column;
   margin-top: 20px;
-  height: 500px;
-  width: 800px;
   overflow-y: auto;
   color: #000;
   text-align: center;
