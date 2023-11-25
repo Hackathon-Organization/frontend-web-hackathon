@@ -4,59 +4,26 @@
       <div class="titulo-equipes">
         <h1>Equipe</h1>
       </div>
+      <div class="botao-voltar">
+        <router-link to="/"><button class="voltar">Voltar</button></router-link>
+      </div>
       <div class="nomes-container">
-        <div class="div-avaliar">Nome</div>
-        <div class="div-avaliar">Nome</div>
-        <div class="div-avaliar">Nome</div>
-        <div class="div-avaliar">Nome</div>
-        <div class="div-avaliar">Nome</div>
-        <div class="div-avaliar">
-          <router-link to="/avaliacao">
-            <button class="avaliar">Avaliar</button>
-          </router-link>
-        </div>
+        <div class="nome-item">Nome 1</div>
+        <div class="nome-item">Nome 2</div>
+        <div class="nome-item">Nome 3</div>
+        <div class="nome-item">Nome 4</div>
+        <div class="nome-item">Nome 5</div>
+      </div>
+      <div class="botao-avaliar">
+        <router-link to="/avaliacao">
+          <button class="avaliar">Avaliar</button>
+        </router-link>
       </div>
     </div>
   </div>
 </template>
 
 <style>
-.avaliar {
-  height: 50px;
-  width: 200px;
-  font-size: 16px;
-  background-color: #75d1ff;
-  color: #fff;
-  border-radius: 15px;
-  transition: background-color 0.3s;
-}
-
-.avaliar:hover {
-  background-color: #012030;
-  color: #012030;
-  border-radius: 15px;
-  color: #fff;
-}
-
-.nomes-container {
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-  overflow-y: auto;
-  color: #fff;
-  text-align: center;
-  max-height: 400px;
-}
-
-.div-avaliar {
-  border-radius: 10px;
-  padding: 10px;
-  margin: 5px;
-  font-size: 20px;
-  background-color: #fff;
-  color: #000;
-}
-
 .equipes-container {
   display: flex;
   justify-content: center;
@@ -72,5 +39,73 @@
   border-radius: 30px;
   overflow: hidden;
   margin: auto;
+}
+
+.titulo-equipes {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.botao-voltar {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.voltar {
+  height: 50px;
+  width: 200px;
+  font-size: 16px;
+  background-color: #75d1ff;
+  color: #fff;
+  border-radius: 15px;
+  transition: background-color 0.3s;
+}
+
+.voltar:hover {
+  background-color: #012030;
+  color: #012030;
+  border-radius: 15px;
+  color: #fff;
+}
+
+.nomes-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  overflow-y: auto;
+  color: #000;
+  text-align: center;
+}
+
+.nome-item {
+  border: 2px solid #fff;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px;
+  font-size: 20px;
+  background-color: #fff;
+}
+
+.botao-avaliar {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.avaliar {
+  height: 50px;
+  width: 200px;
+  font-size: 16px;
+  background-color: #75d1ff;
+  color: #fff;
+  border-radius: 15px;
+  transition: background-color 0.3s;
+}
+
+.avaliar:hover {
+  background-color: #012030;
+  color: #012030;
+  border-radius: 15px;
+  color: #fff;
 }
 </style>
