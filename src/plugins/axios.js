@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: 'http://localhost:19003/api/'
+  baseURL: 'https://back-hackathon-dev-nhbx.4.us-1.fl0.io/api/'
 })
 
 
