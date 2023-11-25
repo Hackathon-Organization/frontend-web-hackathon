@@ -18,10 +18,10 @@ onMounted(async () => {
 
 <template>
   <loading :active="isLoading" :can-cancel="true" is-full-page="false" loader="bars"/>
-  <div class="notas-container">
-    <div class="notas-main">
-      <div class="titulo-notas">
-        <h1>Notas</h1>
+  <div class="pontuacoes-container">
+    <div class="pontuacoes-main">
+      <div class="titulo-pontuacoes">
+        <h1>Pontuações</h1>
       </div>
       <div class="botao-voltar">
         <router-link to="/"><button class="voltar">Voltar</button></router-link>
@@ -36,13 +36,13 @@ onMounted(async () => {
 </template>
 
 <style>
-.notas-container {
+.pontuacoes-container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.notas-main {
+.pontuacoes-main {
   width: 800px;
   color: #fff;
   background-color: #012030;
@@ -51,7 +51,7 @@ onMounted(async () => {
   margin-top: 10px;
 }
 
-.titulo-notas {
+.titulo-pontuacoes {
   margin-top: 20px;
   text-align: center;
 }
