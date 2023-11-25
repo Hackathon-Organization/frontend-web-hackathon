@@ -1,20 +1,46 @@
 <script setup>
-import { ref, onMounted } from 'vue'
-import api from '@/plugins/axios'
+import { ref, onMounted, watch } from 'vue';
+import api from '@/plugins/axios';
 
-const equipes = ref([])
-const isLoading = ref(false)
+const equipes = ref([]);
+const equipeSelecionada = ref(null);
+const avaliacaoAtual = ref(null);
 
 onMounted(async () => {
-  isLoading.value = true
-  const response = await api.get('/equipes')
-  equipes.value = response.data.results
-  isLoading.value = false
-})
-function confirmarAvaliacao() {
-  alert('Avaliações confirmadas:', this.alunos)
+  try {
+    const response = await api.get('/equipes');
+    equipes.value = response.data.results;
+  } catch (error) {
+    console.error('Erro ao carregar equipes:', error);
+    alert('Ocorreu um erro ao carregar as equipes. Por favor, tente novamente.');
+  }
+});
+
+watch(equipeSelecionada, (novaEquipeSelecionada) => {
+  equipes.value = novaEquipeSelecionada?.equipes?.map(equipe => ({ nome: equipe.nome, nota: 0 })) || [];
+});
+
+function selecionarEquipe(equipe) {
+  equipeSelecionada.value = equipe;
+}
+
+async function confirmarAvaliacao() {
+  if (equipeSelecionada.value) {
+
+    try {
+      await api.patch(`/equipes/${equipeSelecionada.value.id}/`, {nota: avaliacaoAtual.value});
+      avaliacaoAtual.value = null;
+      alert('Avaliações confirmadas!');
+    } catch (error) {
+      console.error('Erro ao enviar avaliações:', error);
+      alert('Ocorreu um erro ao enviar as avaliações. Por favor, tente novamente.');
+    }
+  } else {
+    alert('Por favor, selecione uma equipe antes de confirmar a avaliação.');
+  }
 }
 </script>
+
 
 <template>
   <div class="equipes-container">
@@ -28,20 +54,21 @@ function confirmarAvaliacao() {
         </router-link>
       </div>
       <div class="nomes-container equipe">
-        <div class="nome-item">Nome da Equipe</div>
-        <input type="number" class="avaliacao-equipe" placeholder="Nota" />
-      </div>
-      <div class="titulo-equipes">
-        <h1>Alunos</h1>
-      </div>
-      <div class="nomes-container alunos">
-        <div v-for="aluno in alunos" :key="aluno.id" class="aluno-item">
-          <div class="nome">{{ aluno.nome }}</div>
-          <input type="number" class="avaliacao" placeholder="Nota" v-model="aluno.nota" />
+        <div v-for="equipe in equipes" :key="equipe.id" class="nome-item" @click="selecionarEquipe(equipe)">
+          {{ equipe.nome }}
         </div>
       </div>
-      <div class="botao-avaliar">
-        <button class="avaliar" @click="confirmarAvaliacao">Confirmar</button>
+      <div v-if="equipeSelecionada" class="nomes-container membros">
+        <div v-for="equipe in equipes" :key="equipe.id" class="membro-item">
+          <div class="nome">{{ equipe.nota }}</div>
+          <input type="number" class="avaliacao" placeholder="Pontuação" v-model="equipe.nota" />
+        </div>
+        <div class="input-avaliar">
+          <input type="number" class="avaliar" placeholder="Avaliação" v-model="avaliacaoAtual" />
+        </div>
+        <div class="botao-avaliar">
+          <button class="avaliar" @click="confirmarAvaliacao">Confirmar</button>
+        </div>
       </div>
     </div>
   </div>
@@ -105,11 +132,11 @@ body {
 }
 
 .nomes-container.equipe {
-  max-height: 150px;
+  max-height: 300px;
   overflow-y: auto;
 }
 
-.nomes-container.alunos {
+.nomes-container.membros {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -127,32 +154,7 @@ body {
   background-color: #fff;
 }
 
-.botao-avaliar {
-  text-align: center;
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
-}
-
-.avaliar {
-  height: 50px;
-  width: 200px;
-  font-size: 16px;
-  background-color: #75d1ff;
-  color: #fff;
-  border-radius: 15px;
-  transition: background-color 0.3s;
-  margin-top: 10px;
-}
-
-.avaliar:hover {
-  background-color: #012030;
-  color: #012030;
-  border-radius: 15px;
-  color: #fff;
-}
-
-.aluno-item {
+.membro-item {
   width: calc(33.33% - 20px);
   box-sizing: border-box;
   margin-bottom: 10px;
@@ -177,14 +179,34 @@ body {
   font-size: 16px;
 }
 
-.avaliacao-equipe {
-  margin: auto;
+.input-avaliar {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.avaliar {
   color: #012030;
-  width: 80px;
-  height: 30px;
+  width: 90px;
+  height: 40px;
   border: 2px solid #fff;
   border-radius: 10px;
   padding: 5px;
   font-size: 16px;
+}
+
+.confirmar-avaliacao {
+  height: 30px;
+  margin-left: 10px;
+  background-color: #75d1ff;
+  color: #fff;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+}
+
+.confirmar-avaliacao:hover {
+  background-color: #0a6491;
+  color: #012030;
+  border-radius: 10px;
+  color: #fff;
 }
 </style>

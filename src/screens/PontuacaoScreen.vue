@@ -30,7 +30,7 @@ onMounted(async () => {
       <div class="nomes-container">
         <div class="nome-item" v-for="equipe in equipes" :key="equipe.id">
           <h2>{{ equipe.nome }}</h2>
-          <h3>Nota: {{ equipe.pontuacao }}</h3>
+          <h3>Nota: {{ equipe.nota }}</h3>
         </div>
 
       </div>

@@ -45,7 +45,7 @@ onMounted(async () => {
   </div>
 </template>
 
-<style scope>
+<style scoped>
 .equipes-container {
   display: flex;
   justify-content: center;
@@ -67,7 +67,7 @@ onMounted(async () => {
 }
 
 .botao-voltar {
-  position: absolute;
+  position: relative;
   top: 10px;
   left: 10px;
 }
@@ -129,4 +129,7 @@ onMounted(async () => {
   border-radius: 15px;
   color: #fff;
 }
+
+
+
 </style>
