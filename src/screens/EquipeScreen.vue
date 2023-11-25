@@ -38,14 +38,14 @@ onMounted(async () => {
       </div>
       <div class="botao-avaliar">
         <router-link to="/">
-          <router-link to="/inscricao"><button class="avaliar">Inscrever Mais Equipes</button></router-link>
+          <router-link to="/inscricao"><button class="avaliar">Adicionar Equipes</button></router-link>
         </router-link>
       </div>
     </div>
   </div>
 </template>
 
-<style>
+<style scope>
 .equipes-container {
   display: flex;
   justify-content: center;
@@ -114,7 +114,7 @@ onMounted(async () => {
 }
 
 .avaliar {
-  height: 50px;
+  height:50px;
   width: 200px;
   font-size: 16px;
   background-color: #75d1ff;
