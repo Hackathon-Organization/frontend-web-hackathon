@@ -1,20 +1,39 @@
+<script setup>
+import { ref, onMounted } from 'vue';
+import api from '@/plugins/axios';
+import Loading from 'vue-loading-overlay';
+
+const users = ref([])
+const isLoading=ref(false)
+
+onMounted(async () => {
+  isLoading.value = true
+  const response = await api.get('/users');
+  users.value = response.data.results
+  isLoading.value = false
+});
+
+
+</script>
+
 <template>
+  <loading :active="isLoading" :can-cancel="true" is-full-page="false" loader="bars"/>
   <div class="user-profile">
     <div class="user-info">
       <div class="profile-image-container">
         <img src="/src/media/logo.png" alt="Imagem do Usuário" />
       </div>
       <div class="titulo-equipes">
-        <h2 header-text>Nome do Usuário</h2>
+    <h2>Juan Petersson Borges Padilha</h2>
       </div>
       <div class="info-text">
-        <p>Email:</p>
-        <p>Telefone:</p>
-        <p>Data de Nascimento:</p>
+        <p v-for="user in users" :key="user.id">Email: {{ user.email }}</p>
+        <p>Telefone: 4002-8922</p>
+        <p>Data de Nascimento: 19/02/2005</p>
       </div>
       <div class="info-text">
-        <p>Pontuação:</p>
-        <p>Equipe:</p>
+        <p>Pontuação: 67</p>
+        <p>Equipe: Tech Titans</p>
       </div>
 
       <div class="botao-voltar">
@@ -30,6 +49,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+h2 {
+  color: #fff;
 }
 
 .profile-image-container {
