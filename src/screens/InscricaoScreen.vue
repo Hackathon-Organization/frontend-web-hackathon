@@ -1,6 +1,6 @@
 <script setup>
-import Axios from 'axios';
 import { reactive } from 'vue';
+import api from '@/plugins/axios';
 
 const equipe = reactive({
   nome: '',
@@ -14,7 +14,7 @@ const equipe = reactive({
 
 const adicionarEquipe = async () => {
   try {
-    const response = await Axios.post('http://0.0.0.0:19003/api/equipes/', equipe);
+    const response = await api.post('/equipes/', equipe);
     console.log('Resposta do servidor:', response.data);
   } catch (error) {
     console.error('Erro ao adicionar equipe:', error);

@@ -33,7 +33,7 @@ const router = createRouter({
     },
     {
       path: '/equipe',
-      name: 'eauipe',
+      name: 'equipe',
       component: EquipeScreen
     },
     {
