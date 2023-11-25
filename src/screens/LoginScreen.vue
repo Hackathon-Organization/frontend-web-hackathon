@@ -36,6 +36,7 @@
   </script>
   
   <style scoped>
+
   .login-form {
     text-align: center;
     margin: 30px;

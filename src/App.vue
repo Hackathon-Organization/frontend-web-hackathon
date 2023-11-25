@@ -10,6 +10,7 @@ import { RouterView } from 'vue-router';
 </template>
 
 <style scoped>
+
 main {
   align-items: center;
   justify-content: center;

@@ -52,6 +52,11 @@ export default {
 </script>
  
 <style>
+
+body {
+  background: radial-gradient(circle, #012030 0%, #010101 100%);
+}
+
 .equipes-container {
   display: flex;
   justify-content: center;

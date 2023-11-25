@@ -16,6 +16,8 @@ import HeaderComp from '@/components/HeaderComp.vue';
 </template>
 
 <style scoped>
+
+
 .container {
   display: flex;
   flex-direction: column;

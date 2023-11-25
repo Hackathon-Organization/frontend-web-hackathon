@@ -1,4 +1,25 @@
+<script setup>
+import { ref, onMounted } from 'vue';
+import api from '@/plugins/axios';
+import Loading from 'vue-loading-overlay';
+
+const equipes = ref([])
+const isLoading=ref(false)
+
+onMounted(async () => {
+  isLoading.value = true
+  const response = await api.get('/equipes');
+  equipes.value = response.data.results
+  isLoading.value = false
+});
+
+
+
+
+</script>
+
 <template>
+  <loading :active="isLoading" :can-cancel="true" is-full-page="false" loader="bars"/>
   <div class="equipes-container">
     <div class="equipes-main">
       <div class="titulo-equipes">
@@ -8,12 +29,7 @@
         <router-link to="/"><button class="voltar">Voltar</button></router-link>
       </div>
       <div class="nomes-container">
-        <div class="nome-item">Nome 1</div>
-        <div class="nome-item">Nome 2</div>
-        <div class="nome-item">Nome 3</div>
-        <div class="nome-item">Nome 4</div>
-        <div class="nome-item">Nome 5</div>
-        <div class="nome-item">Nome 6</div>
+        <div class="nome-item" v-for="equipe in equipes" :key="equipe.id">{{equipe.nome}}</div>
       </div>
       <div class="botao-avaliar">
         <router-link to="/">
